@@ -1,0 +1,11 @@
+{% extends '@layout/default.html.twig' %} {# para concatenar no twig usa o ~ #}
+{% block title %}Teste{% endblock %}
+{% block content %}
+    {{ data }}
+    {% for customer in customers %}
+        <br>{{ customer.name }}
+    {% endfor %}
+    <hr/>
+{{ constant('MINHA_CONSTANTE',minhaClasse) }}
+
+{% endblock %}
