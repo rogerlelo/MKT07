@@ -14,6 +14,7 @@ use CodeEmailMKT\Domain\Persistence\CustomerRepositoryInterface;
 use Zend\Expressive\Template\TemplateRendererInterface;
 use Zend\Form\Form;
 use Zend\Hydrator\ClassMethods;
+use CodeEmailMKT\Application\Form\HttpMethodElement;
 
 class CustomerUpdatePageAction
 {
@@ -39,7 +40,8 @@ class CustomerUpdatePageAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, callable $next = null)
     {
 
-       /* $myform = new Form();
+        $myform = new Form();
+        $myform->add(new HttpMethodElement('PUT'));
         $myform->add([
             'name' => 'name',
             'type' => 'Text',
@@ -64,7 +66,7 @@ class CustomerUpdatePageAction
             'options' => [
                 'label' => 'Submit'
             ]
-        ]);*/
+        ]);
 
         $id = $request->getAttribute('id');
         $entity = $this->repository->find($id);
